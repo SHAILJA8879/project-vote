@@ -1,16 +1,81 @@
-# React + Vite
+# 🗳️ ProjectVote – Election Education Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
 
-Currently, two official plugins are available:
+ProjectVote is an interactive web application that helps users understand the election process in a simple and engaging way. It guides users through voting steps, checks eligibility, and prepares them for Election Day using an intuitive interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 📍 Interactive election timeline
+* 🧠 Personalized voting eligibility checker
+* 🎮 Voter knowledge quiz with scoring
+* ✔️ Election Day Companion checklist
+* 🌐 Multi-language support
+* 🎨 Clean, responsive, and modern UI
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚡ Tech Stack
+
+* React 18
+* Tailwind CSS
+* Static JSON (No external APIs for reliability)
+
+---
+
+## 🔐 Security & Reliability
+
+* Input validation for user safety
+* Safe rendering (prevents XSS vulnerabilities)
+* No personal data collection or storage
+* Fully offline-capable and stable
+
+---
+
+## ♿ Accessibility
+
+* Keyboard navigation support
+* High-contrast dark mode UI
+* Semantic HTML for screen readers
+
+---
+
+## ⚙️ Efficiency
+
+* Lightweight and fast performance
+* Optimized rendering
+* Minimal dependencies
+
+---
+
+## 🧪 Testing
+
+* Form input validation
+* Quiz logic verification
+* Edge case handling
+
+---
+
+## ☁️ Deployment
+
+Deployed using Google Cloud (Firebase Hosting)
+
+---
+
+## 🎯 Goal
+
+To provide a reliable, accessible, and easy-to-use platform that educates users about elections and helps them confidently participate in the voting process.
+
+---
+
+## 🔗 Live Demo
+
+(Add your deployed link here)
+
+## 📂 GitHub Repository
+
+https://github.com/SHAILJA8879/project-vote
+
+---
