@@ -2,80 +2,82 @@
 
 ## 📌 Overview
 
-ProjectVote is an interactive web application that helps users understand the election process in a simple and engaging way. It guides users through voting steps, checks eligibility, and prepares them for Election Day using an intuitive interface.
+ProjectVote is an interactive web application that helps users understand the election process in a simple and engaging way. It guides users through voting steps, checks eligibility, and prepares them for Election Day.
 
 ---
 
 ## 🚀 Features
 
 * 📍 Interactive election timeline
-* 🧠 Personalized voting eligibility checker
-* 🎮 Voter knowledge quiz with scoring
-* ✔️ Election Day Companion checklist
+* 🧠 Voting eligibility checker
+* 🎮 Quiz with scoring system
+* ✔️ Election Day checklist
 * 🌐 Multi-language support
-* 🎨 Clean, responsive, and modern UI
+* ☁️ Cloud-based vote storage (Firebase Firestore)
 
 ---
 
 ## ⚡ Tech Stack
 
-* React 18
+* React 18 + Vite
 * Tailwind CSS
-* Static JSON (No external APIs for reliability)
+* Firebase Firestore (Database)
+* Google Cloud Run (Deployment)
 
 ---
 
-## 🔐 Security & Reliability
+## ☁️ Google Cloud Integration
 
-* Input validation for user safety
-* Safe rendering (prevents XSS vulnerabilities)
-* No personal data collection or storage
-* Fully offline-capable and stable
-
----
-
-## ♿ Accessibility
-
-* Keyboard navigation support
-* High-contrast dark mode UI
-* Semantic HTML for screen readers
+* Deployed using Google Cloud Run
+* Firebase Firestore used for storing and retrieving votes
+* Scalable and serverless architecture
 
 ---
 
-## ⚙️ Efficiency
+## 🔐 Security
 
-* Lightweight and fast performance
-* Optimized rendering
-* Minimal dependencies
+* Input validation
+* Safe rendering (XSS prevention)
+* No sensitive user data stored
 
 ---
 
 ## 🧪 Testing
 
-* Form input validation
-* Quiz logic verification
+* Input validation checks
+* Quiz logic testing
 * Edge case handling
 
 ---
 
-## ☁️ Deployment
+## ♿ Accessibility
 
-Deployed using Google Cloud (Firebase Hosting)
+* Keyboard navigation
+* Semantic HTML
+* Responsive UI
 
 ---
 
-## 🎯 Goal
+## ⚙️ Performance
 
-To provide a reliable, accessible, and easy-to-use platform that educates users about elections and helps them confidently participate in the voting process.
+* Fast load time
+* Optimized build (Vite)
+* Lightweight components
 
 ---
 
 ## 🔗 Live Demo
 
-(Add your deployed link here)
+(Add your Cloud Run URL)
+
+---
 
 ## 📂 GitHub Repository
 
 https://github.com/SHAILJA8879/project-vote
 
 ---
+
+## 🎯 Goal
+
+To provide an accessible, scalable, and user-friendly platform that educates users about elections and encourages informed participation.
