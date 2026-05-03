@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext, useEffect, useMemo, useCallback } from 'react';
 import translations from '../locales/translations.json';
 
 export const LanguageContext = createContext();
@@ -16,17 +16,29 @@ export function LanguageProvider({ children }) {
     document.documentElement.lang = language;
   }, [language]);
 
-  const t = (key) => {
+  const t = useCallback((key) => {
+    // Basic flat lookup since translations.json is currently flat
+    // but this structure allows for easier extension later
     return translations[language][key] || translations['en'][key] || key;
-  };
+  }, [language]);
+
+  const value = useMemo(() => ({ 
+    language, 
+    setLanguage, 
+    t 
+  }), [language, t]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
 export function useLanguage() {
-  return useContext(LanguageContext);
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
 }

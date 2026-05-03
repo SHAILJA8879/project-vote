@@ -1,31 +1,15 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { Moon, Sun, LayoutDashboard, Home, Globe } from 'lucide-react';
 import HomePage from './pages/Home';
 import DashboardPage from './pages/Dashboard';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import GoogleAuth from './components/GoogleAuth';
+import useTheme from './hooks/useTheme';
 
 function AppContent() {
   const { t, language, setLanguage } = useLanguage();
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
+  const [darkMode, setDarkMode] = useTheme();
 
   return (
     <Router>

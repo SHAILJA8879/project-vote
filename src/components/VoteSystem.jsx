@@ -1,45 +1,15 @@
-import { useState, useEffect } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc, getDocs, query, orderBy, serverTimestamp } from 'firebase/firestore';
+import useVotes from '../hooks/useVotes';
 
 export default function VoteSystem() {
-  const [votes, setVotes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { votes, loading, error, addVote } = useVotes();
 
-  // Fetch Votes
-  const fetchVotes = async () => {
+  const handleVote = async (candidate) => {
     try {
-      setLoading(true);
-      const q = query(collection(db, "votes"), orderBy("createdAt", "desc"));
-      const querySnapshot = await getDocs(q);
-      const votesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setVotes(votesData);
+      await addVote(candidate);
     } catch (err) {
-      setError("Failed to fetch votes.");
-      console.error(err);
-    } finally {
-      setLoading(false);
+      alert(err.message);
     }
   };
-
-  // Add Vote
-  const addVote = async (candidate) => {
-    try {
-      await addDoc(collection(db, "votes"), {
-        candidate,
-        createdAt: serverTimestamp()
-      });
-      fetchVotes(); // Refresh list
-    } catch (err) {
-      alert("Error saving vote!");
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchVotes();
-  }, []);
 
   if (loading) return <p className="text-center py-4">Loading votes...</p>;
   if (error) return <p className="text-center text-red-500 py-4">{error}</p>;
@@ -51,7 +21,7 @@ export default function VoteSystem() {
         {['Candidate A', 'Candidate B'].map(c => (
           <button 
             key={c}
-            onClick={() => addVote(c)}
+            onClick={() => handleVote(c)}
             className="px-6 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition-all"
           >
             Vote {c}
