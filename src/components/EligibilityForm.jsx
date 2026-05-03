@@ -2,6 +2,7 @@ import { useState, memo } from 'react';
 import electionData from '../../election_steps.json';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import ReactGA from 'react-ga4';
 
 const STATES = [
   'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 
@@ -29,17 +30,32 @@ const EligibilityForm = memo(function EligibilityForm() {
 
     if (!age || !state) {
       setError(t('form.validation.empty'));
+      ReactGA.event({
+        category: 'Form',
+        action: 'Validation Error',
+        label: 'Empty Fields'
+      });
       return;
     }
 
     const ageNum = parseInt(age, 10);
     if (ageNum < 18 || ageNum > 120) {
       setError(t('form.validation.age'));
+      ReactGA.event({
+        category: 'Form',
+        action: 'Validation Error',
+        label: `Invalid Age: ${age}`
+      });
       return;
     }
 
     setIsSubmitted(true);
     setTriedSubmit(false);
+    ReactGA.event({
+      category: 'Form',
+      action: 'Success',
+      label: `Eligible: ${state}`
+    });
   };
 
   return (

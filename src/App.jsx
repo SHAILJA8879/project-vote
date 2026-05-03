@@ -5,6 +5,7 @@ import HomePage from './pages/Home';
 import DashboardPage from './pages/Dashboard';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
+import GoogleAuth from './components/GoogleAuth';
 
 function AppContent() {
   const { t, language, setLanguage } = useLanguage();
@@ -61,6 +62,7 @@ function AppContent() {
               >
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
+              <GoogleAuth />
             </div>
           </div>
         </header>

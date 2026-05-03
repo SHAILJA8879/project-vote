@@ -6,6 +6,7 @@ import Loading from '../components/Loading';
 const ElectionSteps = lazy(() => import('../components/ElectionSteps'));
 const Quiz = lazy(() => import('../components/Quiz'));
 const ElectionCompanion = lazy(() => import('../components/ElectionCompanion'));
+import VoteSystem from '../components/VoteSystem';
 
 export default function Dashboard() {
   const { t } = useLanguage();
@@ -22,6 +23,8 @@ export default function Dashboard() {
         <h2 id="dashboard-title" className="text-3xl font-bold tracking-tight text-[#0D1518] dark:text-[#FCFBF8]">{t('dashboard.title')}</h2>
         <p className="text-[#0D1518]/80 dark:text-[#FCFBF8]/80 mt-2">{t('dashboard.subtitle')}</p>
       </div>
+
+      <VoteSystem />
 
       <section aria-labelledby="dashboard-title" className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, i) => {
